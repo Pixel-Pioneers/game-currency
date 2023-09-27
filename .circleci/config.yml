@@ -1,0 +1,60 @@
+version: 2.1
+
+orbs:
+  node: circleci/node@5.1.0
+
+aliases:
+  default: &default
+    docker:
+      - image: cimg/base:stable
+    working_directory: ~/repo
+
+commands:
+  checkout_repo:
+    steps:
+      - checkout
+
+  install_packages:
+    steps:
+      - node/install:
+          install-yarn: true
+      - node/install-packages:
+          pkg-manager: yarn
+
+jobs:
+  build_test:
+    <<: *default
+    steps:
+      - checkout_repo
+      - install_packages
+
+      - run: yarn test:map
+      - run: yarn test
+
+  semantic_release:
+    <<: *default
+    steps:
+      - checkout_repo
+      - install_packages
+
+      - run: npm install --no-progress -g semantic-release @semantic-release/changelog @semantic-release/git
+      - run: npx semantic-release
+
+workflows:
+  build-and-tag:
+    jobs:
+      - build_test:
+          context: global
+          filters: &filters-build
+            branches:
+              only: /.*/
+            tags:
+              ignore: /.*/
+
+      - semantic_release:
+          requires:
+            - build_test
+          context: global
+          filters:
+            branches: # run only on master branch
+              only: master
