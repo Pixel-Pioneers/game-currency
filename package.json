@@ -1,0 +1,43 @@
+{
+  "name": "@pixel-pioneers/game-currency",
+  "version": "2.0.0",
+  "description": "PixelPioneers Server Game Currency Configuration",
+  "main": "output/index.js",
+  "author": "Pixel Pioneers",
+  "license": "Proprietary",
+  "types": "output/index.d.ts",
+  "files": [
+    "output/**/*"
+  ],
+  "scripts": {
+    "prepublish": "tsc",
+    "test": "tsc && mocha 'output/**/*.spec.js' && yarn test:map",
+    "test:map": "md5sum -c map.ts.md5"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Pixel-Pioneers/game-currency.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Pixel-Pioneers/game-currency/issues"
+  },
+  "homepage": "https://github.com/Pixel-Pioneers/game-currency#readme",
+  "devDependencies": {
+    "@types/chai": "^4.3.5",
+    "@types/chai-as-promised": "^7.1.5",
+    "@types/mocha": "^10.0.1",
+    "@types/node": "^20.4.8",
+    "chai": "^4.3.7",
+    "chai-as-promised": "^7.1.1",
+    "mocha": "^10.2.0",
+    "prettier": "^2.8.8",
+    "typescript": "^5.1.6"
+  },
+  "dependencies": {
+    "decimal.js": "^10.4.3"
+  },
+  "publishConfig": {
+    "@pixel-pioneers:registry": "https://npm.pkg.github.com",
+    "tag": "latest"
+  }
+}
