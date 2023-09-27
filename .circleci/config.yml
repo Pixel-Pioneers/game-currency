@@ -38,6 +38,7 @@ jobs:
       - install_packages
 
       - run: npm install --no-progress -g semantic-release @semantic-release/changelog @semantic-release/git
+      - run: echo "\n//npm.pkg.github.com/:_authToken=${GITHUB_TOKEN}" >> .npmrc
       - run: npx semantic-release
 
 workflows:
