@@ -42,11 +42,6 @@ function formatCurrencyAmount({
 }: GameCurrencyFormatParams): string {
   const { displayFractionDigits } = currencyConfigurationMapRaw[currency as GameCurrency]
 
-  new Intl.NumberFormat('en-US', {
-    minimumFractionDigits: displayFractionDigits,
-    signDisplay: 'never',
-  })
-
   amount = roundDisplayCurrencyAmount({ amount, currency })
 
   const formattedValue = amount.toLocaleString(undefined, {
