@@ -56,4 +56,12 @@ describe('Game Currency', () => {
 
     expect(() => gameCurrency.formatCurrencyAmount({ currency: 'XXX', amount: 1.99 })).to.throw(Error)
   })
+
+  it('Ensures formatCurrencyAmount trailing', async () => {
+    expect(gameCurrency.formatCurrencyAmount({ currency: 'XBK', amount: 1.999 })).to.be.deep.equal('1.99')
+    expect(gameCurrency.formatCurrencyAmount({ currency: 'XBK', amount: 1.999, trailingCode: true })).to.be.deep.equal('1.99 BK')
+    expect(gameCurrency.formatCurrencyAmount({ currency: 'XBK', amount: 1.999, display: 'code' })).to.be.deep.equal('1.99 BK')
+    expect(gameCurrency.formatCurrencyAmount({ currency: 'XBK', amount: 1.999, display: 'name' })).to.be.deep.equal('1.99 Bucks')
+    expect(gameCurrency.formatCurrencyAmount({ currency: 'XBK', amount: 1.999, display: 'name', trailingCode: true })).to.be.deep.equal('1.99 Bucks')
+  })
 })

@@ -18,6 +18,8 @@ export type GameCurrencyRoundParams = {
 }
 
 export type GameCurrencyFormatParams = GameCurrencyRoundParams & {
+  /** @deprecated use 'display' field */
   trailingCode?: boolean
   displaySign?: boolean
+  display?: 'code' | 'name'
 }

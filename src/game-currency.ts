@@ -33,7 +33,13 @@ function roundDisplayCurrencyAmount({ amount, currency }: GameCurrencyRoundParam
   return new Decimal(amount).toDecimalPlaces(displayFractionDigits, Decimal.ROUND_FLOOR).toNumber()
 }
 
-function formatCurrencyAmount({ currency, amount, trailingCode, displaySign }: GameCurrencyFormatParams): string {
+function formatCurrencyAmount({
+  currency,
+  amount,
+  display,
+  trailingCode,
+  displaySign,
+}: GameCurrencyFormatParams): string {
   const { displayFractionDigits } = currencyConfigurationMapRaw[currency as GameCurrency]
 
   new Intl.NumberFormat('en-US', {
@@ -49,7 +55,14 @@ function formatCurrencyAmount({ currency, amount, trailingCode, displaySign }: G
     signDisplay: displaySign ? 'exceptZero' : 'auto',
   })
 
-  return `${formattedValue}${trailingCode ? ` ${currencyDisplayCode(currency)}` : ''}`
+  const trailing =
+    display === 'name'
+      ? currencyName(currency)
+      : display === 'code' || trailingCode
+      ? currencyDisplayCode(currency)
+      : ''
+
+  return !!trailing ? `${formattedValue} ${trailing}` : formattedValue
 }
 
 const gameCurrency = {
