@@ -16,21 +16,21 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Pixel-Pioneers/game-currency.git"
+    "url": "git+https://github.com/Pixel-Pioneers/lib.public.game-currency.git"
   },
   "bugs": {
-    "url": "https://github.com/Pixel-Pioneers/game-currency/issues"
+    "url": "https://github.com/Pixel-Pioneers/lib.public.game-currency/issues"
   },
-  "homepage": "https://github.com/Pixel-Pioneers/game-currency#readme",
+  "homepage": "https://github.com/Pixel-Pioneers/lib.public.game-currency#readme",
   "devDependencies": {
-    "@types/chai": "^4.3.6",
-    "@types/chai-as-promised": "^7.1.6",
-    "@types/mocha": "^10.0.1",
-    "@types/node": "^18.18.0",
-    "chai": "^4.3.8",
+    "@types/chai": "^4.3.10",
+    "@types/chai-as-promised": "^7.1.8",
+    "@types/mocha": "^10.0.4",
+    "@types/node": "^18.18.9",
+    "chai": "^4.3.10",
     "chai-as-promised": "^7.1.1",
     "mocha": "^10.2.0",
-    "prettier": "^2.8.8",
+    "prettier": "^3.1.0",
     "typescript": "^5.2.2"
   },
   "dependencies": {
