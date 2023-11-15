@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/Pixel-Pioneers/lib.public.game-currency/compare/v1.0.0...v1.1.0) (2023-11-15)
+
+
+### Features
+
+* format currency display ([ed66319](https://github.com/Pixel-Pioneers/lib.public.game-currency/commit/ed66319f959ba93937a124e791ec09f65314622b))
+
 # 1.0.0 (2023-09-27)
 
 
