@@ -1,3 +1,10 @@
+## [1.1.1](https://github.com/Pixel-Pioneers/lib.public.game-currency/compare/v1.1.0...v1.1.1) (2023-11-15)
+
+
+### Bug Fixes
+
+* cleanup ([404cb55](https://github.com/Pixel-Pioneers/lib.public.game-currency/commit/404cb5599a054f10523ba4a1a98d1a42b68700a9))
+
 # [1.1.0](https://github.com/Pixel-Pioneers/lib.public.game-currency/compare/v1.0.0...v1.1.0) (2023-11-15)
 
 
