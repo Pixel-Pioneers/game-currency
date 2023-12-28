@@ -1,3 +1,15 @@
+# [1.2.0](https://github.com/Pixel-Pioneers/lib.public.game-currency/compare/v1.1.1...v1.2.0) (2023-12-28)
+
+
+### Bug Fixes
+
+* checksum ([4721785](https://github.com/Pixel-Pioneers/lib.public.game-currency/commit/472178557c4d19c3a1a64976105909f9a5259fab))
+
+
+### Features
+
+* shorten gold and sweeps names ([870bc34](https://github.com/Pixel-Pioneers/lib.public.game-currency/commit/870bc34745cbb69a3837c10b1d73665d24989bfd))
+
 ## [1.1.1](https://github.com/Pixel-Pioneers/lib.public.game-currency/compare/v1.1.0...v1.1.1) (2023-11-15)
 
 
