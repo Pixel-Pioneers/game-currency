@@ -6,7 +6,7 @@ const currencyConfigurationMapRaw = {
   [GameCurrency.GoldCoins]: {
     currencyCode: GameCurrency.GoldCoins,
     displayCode: 'GC',
-    currencyName: 'Gold Coins',
+    currencyName: 'Gold',
     currencyClass: GameCurrencyClass.Standard,
     displayFractionDigits: 0,
     redeemable: false,
@@ -14,7 +14,7 @@ const currencyConfigurationMapRaw = {
   [GameCurrency.SweepsCoins]: {
     currencyCode: GameCurrency.SweepsCoins,
     displayCode: 'SC',
-    currencyName: 'Sweeps Coins',
+    currencyName: 'Sweeps',
     currencyClass: GameCurrencyClass.Promotional,
     displayFractionDigits: 2,
     redeemable: true,
