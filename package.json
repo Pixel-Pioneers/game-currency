@@ -11,7 +11,7 @@
   ],
   "scripts": {
     "prepublish": "tsc",
-    "test": "tsc && mocha 'output/**/*.spec.js' && yarn test:map",
+    "test": "tsc && mocha && yarn test:map",
     "test:map": "md5sum -c map.ts.md5",
     "cecksum:update": "md5sum ./src/map.ts >  map.ts.md5"
   },
@@ -24,15 +24,16 @@
   },
   "homepage": "https://github.com/Pixel-Pioneers/lib.public.game-currency#readme",
   "devDependencies": {
-    "@types/chai": "^4.3.11",
+    "@types/chai": "^4.3.14",
     "@types/chai-as-promised": "^7.1.8",
     "@types/mocha": "^10.0.6",
-    "@types/node": "^20.10.5",
-    "chai": "^4.3.10",
+    "@types/node": "^20.12.6",
+    "chai": "^5.1.0",
     "chai-as-promised": "^7.1.1",
-    "mocha": "^10.2.0",
-    "prettier": "^3.1.1",
-    "typescript": "^5.3.3"
+    "mocha": "^10.4.0",
+    "prettier": "^3.2.5",
+    "tsx": "^4.7.2",
+    "typescript": "^5.4.4"
   },
   "dependencies": {
     "decimal.js": "^10.4.3"
