@@ -1,3 +1,10 @@
+# [1.3.0](https://github.com/Pixel-Pioneers/lib.public.game-currency/compare/v1.2.0...v1.3.0) (2024-04-09)
+
+
+### Features
+
+* delete trailingCode ([1852441](https://github.com/Pixel-Pioneers/lib.public.game-currency/commit/185244130188e3990e3c97a1b2fa4801f1486b05))
+
 # [1.2.0](https://github.com/Pixel-Pioneers/lib.public.game-currency/compare/v1.1.1...v1.2.0) (2023-12-28)
 
 
