@@ -17,9 +17,10 @@ export type GameCurrencyRoundParams = {
   amount: number
 }
 
-export type GameCurrencyFormatParams = GameCurrencyRoundParams & {
+export type GameCurrencyFormatParams = {
   currency: CurrencyInput
   amount?: number
   displaySign?: boolean
   display?: 'code' | 'name'
+  hideZero?: boolean
 }

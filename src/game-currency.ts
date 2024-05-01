@@ -33,10 +33,14 @@ function roundDisplayCurrencyAmount({ amount, currency }: GameCurrencyRoundParam
   return new Decimal(amount).toDecimalPlaces(displayFractionDigits, Decimal.ROUND_FLOOR).toNumber()
 }
 
-function formatCurrencyAmount({ currency, amount, display, displaySign }: GameCurrencyFormatParams): string {
+function formatCurrencyAmount({ currency, amount, display, displaySign, hideZero }: GameCurrencyFormatParams): string {
   const { displayFractionDigits } = currencyConfigurationMapRaw[currency as GameCurrency]
 
   amount = amount || 0
+
+  if (hideZero && amount === 0) {
+    return ''
+  }
 
   amount = roundDisplayCurrencyAmount({ amount, currency })
 
