@@ -1,3 +1,5 @@
+## [1.3.2](https://github.com/Pixel-Pioneers/lib.public.game-currency/compare/v1.3.1...v1.3.2) (2024-05-01)
+
 ## [1.3.1](https://github.com/Pixel-Pioneers/lib.public.game-currency/compare/v1.3.0...v1.3.1) (2024-04-09)
 
 # [1.3.0](https://github.com/Pixel-Pioneers/lib.public.game-currency/compare/v1.2.0...v1.3.0) (2024-04-09)
