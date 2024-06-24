@@ -9,40 +9,44 @@ import {
 } from './types'
 
 function currencyName(input: CurrencyInput): string {
-  return currencyConfigurationMapRaw[input as GameCurrency].currencyName
+  return currencyConfigurationMapRaw[input as GameCurrency]?.currencyName || input
 }
 
 function currencyClass(input: CurrencyInput): GameCurrencyClass {
-  return currencyConfigurationMapRaw[input as GameCurrency].currencyClass
+  return currencyConfigurationMapRaw[input as GameCurrency]?.currencyClass || GameCurrencyClass.Standard
 }
 
 function currencyCode(input: CurrencyInput): GameCurrency {
-  return currencyConfigurationMapRaw[input as GameCurrency].currencyCode
+  return currencyConfigurationMapRaw[input as GameCurrency]?.currencyCode || input
 }
 
 function currencyDisplayCode(input: CurrencyInput): string {
-  return currencyConfigurationMapRaw[input as GameCurrency].displayCode
+  return currencyConfigurationMapRaw[input as GameCurrency]?.displayCode || input
+}
+
+function isCurrency(input: CurrencyInput): input is GameCurrency {
+  return !!currencyConfigurationMapRaw[input as GameCurrency]
 }
 
 function isCashableCurrency(input: CurrencyInput): boolean {
-  return currencyConfigurationMapRaw[input as GameCurrency].redeemable
+  return !!currencyConfigurationMapRaw[input as GameCurrency]?.redeemable
 }
 
 function roundDisplayCurrencyAmount({ amount, currency }: GameCurrencyRoundParams): number {
-  const { displayFractionDigits } = currencyConfigurationMapRaw[currency as GameCurrency]
-  return new Decimal(amount).toDecimalPlaces(displayFractionDigits, Decimal.ROUND_FLOOR).toNumber()
+  const { displayFractionDigits = 0 } = currencyConfigurationMapRaw[currency as GameCurrency] || {}
+  return new Decimal(amount || 0).toDecimalPlaces(displayFractionDigits, Decimal.ROUND_FLOOR).toNumber()
 }
 
 function formatCurrencyAmount({ currency, amount, display, displaySign, hideZero }: GameCurrencyFormatParams): string {
-  const { displayFractionDigits } = currencyConfigurationMapRaw[currency as GameCurrency]
+  const { displayFractionDigits = 0 } = currencyConfigurationMapRaw[currency as GameCurrency] || {}
 
   amount = amount || 0
+
+  amount = roundDisplayCurrencyAmount({ amount, currency })
 
   if (hideZero && amount === 0) {
     return ''
   }
-
-  amount = roundDisplayCurrencyAmount({ amount, currency })
 
   const formattedValue = amount.toLocaleString(undefined, {
     minimumFractionDigits: displayFractionDigits,
@@ -60,6 +64,7 @@ const gameCurrency = {
   currencyClass,
   currencyCode,
   currencyDisplayCode,
+  isCurrency,
   isCashableCurrency,
   roundDisplayCurrencyAmount,
   formatCurrencyAmount,
