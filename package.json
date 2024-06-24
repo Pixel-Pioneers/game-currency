@@ -24,16 +24,13 @@
   },
   "homepage": "https://github.com/Pixel-Pioneers/lib.public.game-currency#readme",
   "devDependencies": {
-    "@types/chai": "^4.3.14",
-    "@types/chai-as-promised": "^7.1.8",
-    "@types/mocha": "^10.0.6",
-    "@types/node": "^20.12.7",
-    "chai": "^5.1.0",
-    "chai-as-promised": "^7.1.1",
+    "@types/chai": "^4.3.16",
+    "@types/mocha": "^10.0.7",
+    "@types/node": "^20.14.8",
+    "chai": "^5.1.1",
     "mocha": "^10.4.0",
-    "prettier": "^3.2.5",
-    "tsx": "^4.8.2",
-    "typescript": "^5.4.5"
+    "tsx": "4.11.0",
+    "typescript": "^5.5.2"
   },
   "dependencies": {
     "decimal.js": "^10.4.3"
