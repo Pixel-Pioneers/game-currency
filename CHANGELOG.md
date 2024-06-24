@@ -1,3 +1,10 @@
+## [1.3.3](https://github.com/Pixel-Pioneers/lib.public.game-currency/compare/v1.3.2...v1.3.3) (2024-06-24)
+
+
+### Bug Fixes
+
+* use default values ([768e70a](https://github.com/Pixel-Pioneers/lib.public.game-currency/commit/768e70a36d1076b620ae7b5307dbcae2036c5250))
+
 ## [1.3.2](https://github.com/Pixel-Pioneers/lib.public.game-currency/compare/v1.3.1...v1.3.2) (2024-05-01)
 
 ## [1.3.1](https://github.com/Pixel-Pioneers/lib.public.game-currency/compare/v1.3.0...v1.3.1) (2024-04-09)
