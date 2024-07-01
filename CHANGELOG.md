@@ -1,3 +1,10 @@
+# [1.4.0](https://github.com/Pixel-Pioneers/lib.public.game-currency/compare/v1.3.3...v1.4.0) (2024-07-01)
+
+
+### Features
+
+* display currency template ([e30bb96](https://github.com/Pixel-Pioneers/lib.public.game-currency/commit/e30bb96f00d6373b952ea562ab5acff02954cb36))
+
 ## [1.3.3](https://github.com/Pixel-Pioneers/lib.public.game-currency/compare/v1.3.2...v1.3.3) (2024-06-24)
 
 
