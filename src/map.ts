@@ -2,13 +2,24 @@ import { GameCurrency, GameCurrencyClass } from './types/currency'
 
 /** NEVER change these values as it may have a knock on effect breaking connected systems */
 
-const currencyConfigurationMapRaw = {
+type CurrencyConfiguration = {
+  currencyCode: GameCurrency
+  displayCode: string
+  currencyName: string
+  currencyClass: GameCurrencyClass
+  displayFractionDigits: number
+  storeFractionDigits: number
+  redeemable: boolean
+}
+
+const currencyConfigurationMapRaw: Record<GameCurrency, CurrencyConfiguration> = {
   [GameCurrency.GoldCoins]: {
     currencyCode: GameCurrency.GoldCoins,
     displayCode: 'GC',
     currencyName: 'Gold',
     currencyClass: GameCurrencyClass.Standard,
     displayFractionDigits: 0,
+    storeFractionDigits: 2,
     redeemable: false,
   },
   [GameCurrency.SweepsCoins]: {
@@ -17,6 +28,7 @@ const currencyConfigurationMapRaw = {
     currencyName: 'Sweeps',
     currencyClass: GameCurrencyClass.Promotional,
     displayFractionDigits: 2,
+    storeFractionDigits: 4,
     redeemable: true,
   },
   [GameCurrency.Bits]: {
@@ -25,6 +37,7 @@ const currencyConfigurationMapRaw = {
     currencyName: 'Bits',
     currencyClass: GameCurrencyClass.Standard,
     displayFractionDigits: 0,
+    storeFractionDigits: 2,
     redeemable: false,
   },
   [GameCurrency.Bucks]: {
@@ -33,6 +46,7 @@ const currencyConfigurationMapRaw = {
     currencyName: 'Bucks',
     currencyClass: GameCurrencyClass.Promotional,
     displayFractionDigits: 2,
+    storeFractionDigits: 4,
     redeemable: true,
   },
 }

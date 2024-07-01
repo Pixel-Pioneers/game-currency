@@ -47,7 +47,7 @@ describe('Game Currency', () => {
     expect(gameCurrency.roundDisplayCurrencyAmount({ currency: 'XBT', amount: 1.99 })).to.be.deep.equal(1)
     expect(gameCurrency.roundDisplayCurrencyAmount({ currency: 'XBK', amount: 1.99 })).to.be.deep.equal(1.99)
 
-    expect(gameCurrency.roundDisplayCurrencyAmount({ currency: 'XXX', amount: 1.99 })).to.be.deep.equal(1)
+    expect(gameCurrency.roundDisplayCurrencyAmount({ currency: 'XXX', amount: 1.99 })).to.be.deep.equal(1.99)
     // expect(() => gameCurrency.roundDisplayCurrencyAmount({ currency: 'XXX', amount: 1.99 })).to.throw(Error)
   })
 
@@ -60,7 +60,7 @@ describe('Game Currency', () => {
       gameCurrency.formatCurrencyAmount({ currency: 'XBK', amount: 123456789.9999, display: 'code' }),
     ).to.be.deep.equal('123,456,789.99 BK')
 
-    expect(gameCurrency.formatCurrencyAmount({ currency: 'XXX', amount: 1.99 })).to.be.deep.equal('1')
+    expect(gameCurrency.formatCurrencyAmount({ currency: 'XXX', amount: 1.99 })).to.be.deep.equal('1.99')
     // expect(() => gameCurrency.formatCurrencyAmount({ currency: 'XXX', amount: 1.99 })).to.throw(Error)
   })
 
@@ -72,5 +72,101 @@ describe('Game Currency', () => {
     expect(gameCurrency.formatCurrencyAmount({ currency: 'XBK', amount: 1.999, display: 'name' })).to.be.deep.equal(
       '1.99 Bucks',
     )
+  })
+
+  it('Ensures formatCurrencyAmount hide zero', async () => {
+    expect(
+      gameCurrency.formatCurrencyAmount({
+        currency: 'XBK',
+        display: 'name',
+        uppercase: true,
+        displayTemplate: '{{currencyValue}} free {{currencyDisplay}}',
+        hideZero: true,
+      }),
+    ).to.be.deep.equal('')
+
+    expect(
+      gameCurrency.formatCurrencyAmount({
+        currency: 'XBK',
+        amount: 0,
+        display: 'name',
+        uppercase: true,
+        displayTemplate: '{{currencyValue}} free {{currencyDisplay}}',
+        hideZero: true,
+      }),
+    ).to.be.deep.equal('')
+
+    expect(
+      gameCurrency.formatCurrencyAmount({
+        currency: 'XBK',
+        amount: 0.0,
+        display: 'name',
+        uppercase: true,
+        displayTemplate: '{{currencyValue}} free {{currencyDisplay}}',
+        hideZero: true,
+      }),
+    ).to.be.deep.equal('')
+  })
+
+  it('Ensures formatCurrencyAmount display template', async () => {
+    expect(
+      gameCurrency.formatCurrencyAmount({
+        currency: 'XBK',
+        amount: 1.99,
+        display: undefined,
+        displayTemplate: '{{currencyValue}} FREE {{currencyDisplay}}',
+      }),
+    ).to.be.deep.equal('1.99 FREE')
+
+    expect(
+      gameCurrency.formatCurrencyAmount({
+        currency: 'XBK',
+        amount: 1.99,
+        display: 'code',
+        displayTemplate: '{{currencyValue}} FREE {{currencyDisplay}}',
+      }),
+    ).to.be.deep.equal('1.99 FREE BK')
+
+    expect(
+      gameCurrency.formatCurrencyAmount({
+        currency: 'XBK',
+        amount: 1.99,
+        display: 'name',
+        displayTemplate: '{{currencyValue}} FREE {{currencyDisplay}}',
+      }),
+    ).to.be.deep.equal('1.99 FREE Bucks')
+  })
+
+  it('Ensures formatCurrencyAmount uppercase', async () => {
+    expect(
+      gameCurrency.formatCurrencyAmount({
+        currency: 'XBK',
+        amount: 1.99,
+        display: 'name',
+        uppercase: true,
+        displayTemplate: '{{currencyValue}} free {{currencyDisplay}}',
+      }),
+    ).to.be.deep.equal('1.99 FREE BUCKS')
+  })
+
+  it('Ensures formatCurrencyAmount trim fraction digits', async () => {
+    expect(
+      gameCurrency.formatCurrencyAmount({ currency: 'XBK', amount: 1.999, trimFractionDigits: true }),
+    ).to.be.deep.equal('1.99')
+    expect(
+      gameCurrency.formatCurrencyAmount({ currency: 'XBK', amount: 1.9, trimFractionDigits: true }),
+    ).to.be.deep.equal('1.9')
+    expect(
+      gameCurrency.formatCurrencyAmount({ currency: 'XBK', amount: 1, trimFractionDigits: true }),
+    ).to.be.deep.equal('1')
+  })
+
+  it('Ensures formatCurrencyAmount full fraction digits', async () => {
+    expect(
+      gameCurrency.formatCurrencyAmount({ currency: 'XBK', amount: 1.99999, fullFractionDigits: true }),
+    ).to.be.deep.equal('1.9999')
+    expect(
+      gameCurrency.formatCurrencyAmount({ currency: 'XBK', amount: 1.9, fullFractionDigits: true }),
+    ).to.be.deep.equal('1.90')
   })
 })

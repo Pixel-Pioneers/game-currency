@@ -13,14 +13,25 @@ export enum GameCurrencyClass {
 export type CurrencyInput = GameCurrency | string
 
 export type GameCurrencyRoundParams = {
+  /** game currency code */
   currency: CurrencyInput
-  amount: number
+  /** game currency amount */
+  amount?: number
+  /** display all fraction digits */
+  fullFractionDigits?: boolean
 }
 
-export type GameCurrencyFormatParams = {
-  currency: CurrencyInput
-  amount?: number
+export type GameCurrencyFormatParams = GameCurrencyRoundParams & {
+  /** mustache template. (default: "{{currencyValue}} {{currencyDisplay}}") */
+  displayTemplate?: string
+  /** always display sign  */
   displaySign?: boolean
+  /** game currency suffix display: code, name or none. (default: none) */
   display?: 'code' | 'name'
+  /** return empty string for zero values  */
   hideZero?: boolean
+  /** uppercase result */
+  uppercase?: boolean
+  /** display minimum possible number of fraction digits */
+  trimFractionDigits?: boolean
 }
