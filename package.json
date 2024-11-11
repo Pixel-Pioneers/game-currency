@@ -9,6 +9,9 @@
   "files": [
     "output/**/*"
   ],
+  "engines": {
+    "node": ">=22.11"
+  },
   "scripts": {
     "prepublish": "tsc",
     "test": "tsc && mocha && yarn test:map",
@@ -24,14 +27,14 @@
   },
   "homepage": "https://github.com/Pixel-Pioneers/lib.public.game-currency#readme",
   "devDependencies": {
-    "@types/chai": "^4.3.16",
-    "@types/mocha": "^10.0.7",
+    "@types/chai": "^4.3.20",
+    "@types/mocha": "^10.0.9",
     "@types/mustache": "^4.2.5",
-    "@types/node": "^20.14.9",
-    "chai": "^5.1.1",
-    "mocha": "^10.5.2",
-    "tsx": "4.11.0",
-    "typescript": "^5.5.2"
+    "@types/node": "^22.9.0",
+    "chai": "^5.1.2",
+    "mocha": "^10.8.2",
+    "tsx": "4.11.2",
+    "typescript": "^5.6.3"
   },
   "dependencies": {
     "decimal.js": "^10.4.3",
